@@ -1,12 +1,13 @@
 package resource;
 
 public class Presenter {
-	
+
 	public Presenter(String platform, String id, String name) {
 		super();
 		this.platform = platform;
 		this.id = id;
 		this.name = name;
+		this.isOnLine = false;
 	}
 
 	private String platform;
@@ -58,8 +59,5 @@ public class Presenter {
 	public void setOnLine(boolean isOnLine) {
 		this.isOnLine = isOnLine;
 	}
-	
-	
-	
 
 }
