@@ -9,11 +9,11 @@ public class Resource {
 
 	public List<Presenter> initPresenterList() {
 
-		lisPresenter.add(new Presenter("D", "16789", "°²µÂÂŞÄİ"));
+		lisPresenter.add(new Presenter("D", "16789", "å®‰å¾·ç½—å¦®"));
 		lisPresenter.add(new Presenter("D", "57321", "bill"));
-		lisPresenter.add(new Presenter("P", "10003", "ĞÇËÕ"));
-		lisPresenter.add(new Presenter("P", "10027", "ÍßÄï"));
-		lisPresenter.add(new Presenter("Z", "12063", "»ªÍÓ"));
+		lisPresenter.add(new Presenter("P", "10003", "æ˜Ÿè‹"));
+		lisPresenter.add(new Presenter("P", "10027", "ç“¦å¨˜"));
+		lisPresenter.add(new Presenter("Z", "12063", "åé™€"));
 
 		return lisPresenter;
 	}

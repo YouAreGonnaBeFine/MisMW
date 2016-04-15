@@ -34,11 +34,11 @@ public class ZhanqiTV {
 			room.setId(ArrRoom.getJSONObject(i).getString("id"));
 			room.setNickname(ArrRoom.getJSONObject(i).getString("nickname"));
 			room.setTitle(ArrRoom.getJSONObject(i).getString("title"));
-			System.out.println(room.getNickname()+"-ÕıÔÚÖ±²¥£¡");
+			System.out.println(room.getNickname()+"-æ­£åœ¨ç›´æ’­ï¼");
 			roomList.add(room);
 		}
 		
-		System.out.println("²éÑ¯½áÊø");
+		System.out.println("æŸ¥è¯¢ç»“æŸ");
 	}
 
 }

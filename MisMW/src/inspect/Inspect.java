@@ -44,9 +44,9 @@ public class Inspect {
 
 		List<Sign> signedList = new ArrayList<Sign>();
 
-		signedList.add(new Sign("32892", "涛妹"));
-		signedList.add(new Sign("16789", "安德罗妮"));
-		signedList.add(new Sign("13861", "不二"));
+		signedList.add(new Sign("32892", "娑涘"));
+		signedList.add(new Sign("16789", "瀹夊痉缃楀Ξ"));
+		signedList.add(new Sign("13861", "涓嶄簩"));
 
 		for (int i = 0; i < signedList.size(); i++) {
 
@@ -65,12 +65,12 @@ public class Inspect {
 		
 		for (int i = 0; i < signedList.size(); i++){
 			if(signedList.get(i).isOnLine())
-				System.out.println(signedList.get(i).getName() + "正在直播");
+				System.out.println(signedList.get(i).getName() + "姝ｅ湪鐩存挱");
 		}
 		System.out.println("----------------------");
 		for (int i = 0; i < signedList.size(); i++){
 			if(!signedList.get(i).isOnLine())
-				System.out.println(signedList.get(i).getName() + "已经离线");
+				System.out.println(signedList.get(i).getName() + "宸茬粡绂荤嚎");
 		}		
 		
 	}

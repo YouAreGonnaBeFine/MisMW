@@ -28,8 +28,12 @@ import io.netty.util.concurrent.GlobalEventExecutor;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import resource.Presenter;
+import main.Control;
 
 public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> {
 	
@@ -112,9 +116,26 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 		Channel incoming = ctx.channel();
         for (Channel channel : channels) {
             if (channel != incoming){
-            	channel.writeAndFlush(new TextWebSocketFrame("$Remot:"+request));
+//            	channel.writeAndFlush(new TextWebSocketFrame("$Remot:"+request));
             } else {
-            	channel.writeAndFlush(new TextWebSocketFrame("$Local:"+request));
+//            	channel.writeAndFlush(new TextWebSocketFrame("$Local:"+request));
+            	
+            	Control  c = new Control();
+            	List<Presenter> lisPresenter = c.getPresenterLis();
+            	
+            	for(Presenter p :lisPresenter ){
+            		
+            		if(p.isOnLine()){
+            			
+            			channel.writeAndFlush(new TextWebSocketFrame(p.getName()+"正在直播"));
+            		}else{
+            			
+            			channel.writeAndFlush(new TextWebSocketFrame(p.getName()+"已经离线"));
+            		}
+            		
+            		
+            	}
+            	
             }
         	
         }
