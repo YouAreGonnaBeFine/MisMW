@@ -5,6 +5,11 @@ import net.sf.json.JSONObject;
 import http.HttpRequest;
 
 public class PandaTV {
+	
+	
+	public static final String PANDA_STATUS_ONLINE = "2";
+	
+	public static final String PANDA_STATUS_OFFLINE = "3";
 
 	public static void main(String[] args) {
 
@@ -23,7 +28,7 @@ public class PandaTV {
 
 		String status = objVideo.getString("status");
 
-		if (status != null && status.equals("2")) {
+		if (status != null && status.equals(PandaTV.PANDA_STATUS_ONLINE)) {
 			System.out.println("onLine");
 		} else {
 
@@ -50,13 +55,11 @@ public class PandaTV {
 		String status = objVideo.getString("status");
 		String title = objRoom.getString("name");
 
-		if (status != null && status.equals("2")) {
+		if (status != null && status.equals(PandaTV.PANDA_STATUS_ONLINE)) {
 			p.setOnLine(true);
 			p.setTitle(title);
-			System.out.println("onLine");
 		} else {
 			p.setOnLine(false);
-			System.out.println("offLine");
 		}
 
 		return p;
