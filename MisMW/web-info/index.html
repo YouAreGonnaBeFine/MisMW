@@ -2,11 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-Netty WebSocket 
+主播监视器V1
 </head>
-<br>
 <body>  
-<br>
 <script type="text/javascript">
 var socket;
 if (!window.WebSocket) 
@@ -40,6 +38,8 @@ else
 	}
 
 function send(message) {
+	var ta = document.getElementById('responseText');
+	ta.value="";
 	if (!window.WebSocket) { return; }
 	if (socket.readyState == WebSocket.OPEN) {
 		socket.send(message);
@@ -61,16 +61,11 @@ return false;
 }
 }
 </script>
-
 <form onsubmit="return false;">
-
-<br><br>
 <textarea id="responseText" style="width:500px;height:300px;" disabled="disabled"></textarea>
-
 <hr color="blue"/>
 <h3></h3>
-<input type="text" id = "requestText" name="message" value="" style="width: 450px;"/>
-<input type="button" id = "sendRquest" value="发送" onclick="send(this.form.message.value)"/>
+<input type="button" id = "sendRquest" value="查询" style="width: 500px;" onclick="send()" />
 </form>
 </body>
 </html>
