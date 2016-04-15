@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+Netty WebSocket 
+</head>
+<br>
+<body>  
+<br>
+<script type="text/javascript">
+var socket;
+if (!window.WebSocket) 
+{
+	window.WebSocket = window.MozWebSocket;
+}
+if (window.WebSocket) {
+	socket = new WebSocket("ws://127.0.0.1:8081/websocket");
+	socket.onmessage = function(event) {
+		var ta = document.getElementById('responseText');
+		var rq = document.getElementById('requestText');
+		ta.value=ta.value+"\n"+event.data;
+		ta.scrollTop=ta.scrollHeight;
+		rq.value="";
+//		ta.value="";
+//		ta.value = event.data
+	};
+	socket.onopen = function(event) {
+		var ta = document.getElementById('responseText');
+		ta.value = "$SERVER: 已连接到服务器!";
+	};
+	socket.onclose = function(event) {
+		var ta = document.getElementById('responseText');
+		ta.value = "";
+		ta.value = "$SERVER: 服务器已关闭!"; 
+	};
+}
+else
+	{
+	alert("抱歉，您的浏览器不支持WebSocket协议!");
+	}
+
+function send(message) {
+	if (!window.WebSocket) { return; }
+	if (socket.readyState == WebSocket.OPEN) {
+		socket.send(message);
+	}
+	else
+		{
+		  alert("服务器连接失败!");
+		}
+}
+
+
+function ch()
+{
+if(event.keyCode==13);
+{
+	
+document.getElementById("sendRquest").click();
+return false;
+}
+}
+</script>
+
+<form onsubmit="return false;">
+
+<br><br>
+<textarea id="responseText" style="width:500px;height:300px;" disabled="disabled"></textarea>
+
+<hr color="blue"/>
+<h3></h3>
+<input type="text" id = "requestText" name="message" value="" style="width: 450px;"/>
+<input type="button" id = "sendRquest" value="发送" onclick="send(this.form.message.value)"/>
+</form>
+</body>
+</html>
