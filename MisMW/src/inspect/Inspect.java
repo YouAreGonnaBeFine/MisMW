@@ -73,9 +73,6 @@ public class Inspect {
 				System.out.println(signedList.get(i).getName() + "ÒÑ¾­ÀëÏß");
 		}		
 		
-		
-		
-
 	}
 
 }
